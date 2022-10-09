@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>双活与灾备 | 个人测试</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="（1）“异地”与“本地”，哪个好？这是一个很常见的误解。异地容灾的造价往往是本地容灾的几倍甚至几十倍，为了保证链路还需要持续不断地进行投入。由于很多厂商可以通过异地容灾扩大销售业绩，他们也在背后不断强调异地容灾的价值，默许甚至推动这个误解不断蔓延。 实际上，我们认为，异地容灾不能替代本地容灾，只是本地容灾基础上的补充。两者共同组成一个完整的容灾解决方案。而在实际使用中，本地容灾往往比异地容灾更加重">
+<meta property="og:type" content="article">
+<meta property="og:title" content="双活与灾备">
+<meta property="og:url" content="http://example.com/2022/04/25/%E5%8F%8C%E6%B4%BB%E4%B8%8E%E7%81%BE%E5%A4%87/index.html">
+<meta property="og:site_name" content="个人测试">
+<meta property="og:description" content="（1）“异地”与“本地”，哪个好？这是一个很常见的误解。异地容灾的造价往往是本地容灾的几倍甚至几十倍，为了保证链路还需要持续不断地进行投入。由于很多厂商可以通过异地容灾扩大销售业绩，他们也在背后不断强调异地容灾的价值，默许甚至推动这个误解不断蔓延。 实际上，我们认为，异地容灾不能替代本地容灾，只是本地容灾基础上的补充。两者共同组成一个完整的容灾解决方案。而在实际使用中，本地容灾往往比异地容灾更加重">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-04-25T01:27:00.000Z">
+<meta property="article:modified_time" content="2022-09-13T00:31:19.512Z">
+<meta property="article:author" content="viacocha　　　京ICP备20018265号　　　京公网安备11010502041911号">
+<meta property="article:tag" content="blog,viacocha">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="个人测试" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 6.1.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">个人测试</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">一个学习网站</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS 订阅"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜索"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-双活与灾备" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/04/25/%E5%8F%8C%E6%B4%BB%E4%B8%8E%E7%81%BE%E5%A4%87/" class="article-date">
+  <time class="dt-published" datetime="2022-04-25T01:27:00.000Z" itemprop="datePublished">2022-04-25</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/IT/">IT</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      双活与灾备
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h3 id="（1）“异地”与“本地”，哪个好？"><a href="#（1）“异地”与“本地”，哪个好？" class="headerlink" title="（1）“异地”与“本地”，哪个好？"></a>（1）“异地”与“本地”，哪个好？</h3><p>这是一个很常见的误解。异地容灾的造价往往是本地容灾的几倍甚至几十倍，为了保证链路还需要持续不断地进行投入。由于很多厂商可以通过异地容灾扩大销售业绩，他们也在背后不断强调异地容灾的价值，默许甚至推动这个误解不断蔓延。</p>
+<p>实际上，我们认为，异地容灾不能替代本地容灾，只是本地容灾基础上的补充。两者共同组成一个完整的容灾解决方案。而在实际使用中，本地容灾往往比异地容灾更加重要。为什么呢？</p>
+<p>灾难可以简单分成物理灾难和逻辑灾难两类。火灾、停电、恐怖袭击等情况，使生产中心大规模损毁，叫作物理灾难。而逻辑灾难是指数据库崩溃、人为误操作、系统升级失败、黑客入侵、恶意删除等。物理灾难和逻辑灾难的差别主要是物理的硬件设施是否损毁。说到这里，可能大家都会意识到，在现实生活中，逻辑灾难发生的概率是远超物理灾难的。<br>于是，灾难发生时主要有这几种可能的情况：</p>
+<ul>
+<li><p>发生逻辑灾难，生产中心的硬件设施实际上仍然完好，我们只要恢复数据和系统就可以重新上线。所以本地容灾可以很好地应对逻辑灾难。</p>
+</li>
+<li><p>发生物理灾难，有可能损毁的硬件设施存在备机或者可以在本地能够马上修复。比如一台服务器烧毁，但是本地有一台备机，或者可以马上分配一台虚拟机出来，这种情况下仍然是本地容灾可以解决的范围。</p>
+</li>
+<li><p>发生物理灾难，而且硬件设施不能马上修复，才需要异地容灾。</p>
+</li>
+</ul>
+<p>那么可能有的朋友会说，既然已经花巨资建好了灾备中心，那无论什么灾难都切换到灾备中心就好了。这样可不可以呢？我们姑且先不考虑成本，我们来考虑一下下面这些问题：</p>
+<ul>
+<li><p>灾备中心是否对所有的系统，包括关键业务系统、所有的外围应用系统以及相关的存储和网络，都实现了容灾？如果没有，异地容灾就不如本地容灾。</p>
+</li>
+<li><p>灾备中心是否保证了所有数据的完整性和一致性？远程网络传输往往对数据的完整性和一致性产生挑战，而完整性和一致性是接管业务的必需条件，所以如果不能保证，异地容灾就不如本地容灾。</p>
+</li>
+<li><p>灾备中心的硬件配置和通信链路能不能做到与生产中心相等？国内绝大部分灾备中心的配置都比生产中心低一些，这必然会对业务产生影响，则异地不如本地容灾。</p>
+</li>
+<li><p>灾备中心的人员配置管理水平如何？国内灾备中心的人员配置往往不够完整，更不要提素质和经验上的差距了，这样的话，异地容灾就不如本地容灾。</p>
+</li>
+<li><p>容灾之后回切所产生的风险你考虑到了吗？这个往往最重要，一次系统回切所产生的风险丝毫不亚于一次灾难。</p>
+</li>
+<li><p>在实际应用中，异地容灾的决策流程能不能和本地恢复一样快速而有效率？这几乎是不可能的。故障切换会对很多业务产生重大影响，任何企业都需要一套复杂的审批流程来慎重对待。但是，在真的故障发生的时候，铺天盖地的指责和谩骂迎面扑来，如何果断快速地应对，可能对任何领导都是一种挑战。</p>
+</li>
+</ul>
+<p>考虑到这些因素，可能在绝大部分情况下，如果可以选择，用本地容灾比异地容灾更可靠，也更方便。</p>
+<p>这并不是说就不需要异地容灾了。如上所述，如果出现无法快速修复的物理灾难，异地容灾还是很有用的。我们的结论是，异地容灾应该是已经做好本地容灾基础上的补充，而不能替代本地容灾。</p>
+<h3 id="（2）“双活”和“异地容灾”哪个好？"><a href="#（2）“双活”和“异地容灾”哪个好？" class="headerlink" title="（2）“双活”和“异地容灾”哪个好？"></a>（2）“双活”和“异地容灾”哪个好？</h3><p>“双活”，甚至“多活”数据中心，是现在数据中心建设领域非常热门的话题。双活需要更复杂的跨地域的系统和应用设计，因此其复杂程度和造价往往远远高于普通的“异地容灾”。贵的往往是更好的，所以很多人开始产生一个误区，认为“双活”才是容灾的终极理想，是比“异地容灾”更加高大上的存在。有了双活，就用不着容灾了。这是不是事实呢？</p>
+<p>不是！我们认为，“双活”是个好东西，“多活”更好，但是，它的好并不体现在容灾上。双活适应的场景与容灾不一样。</p>
+<p>为什么呢？因为要实现双活，核心要素是两个数据中心的应用数据保持完全同步。其底层技术一般都是基于数据库、服务器或者存储的集群技术。为了实现完全同步，系统设计的难度、网络链路的造价和维护成本远远高于一般的异地容灾。另外，我们特别需要注意到，双活还产生了容灾上无法解决的致命弱点：</p>
+<ul>
+<li><p>我们之前讨论的逻辑灾难，比如数据库错误、恶意删除、黑客入侵等情况，完全同步的结果就是同生同死，无论是双活还是多活，所有的节点只能是一起瘫痪。</p>
+</li>
+<li><p>双活并不保留数据的历史样本。也就是说，永远只有一份最新的数据。容灾往往需要把系统回退到以前，比如一个小时之前的状态，双活并不具备这样的功能。</p>
+</li>
+<li><p>完全同步本身有导致系统灾难的可能。例如银监会175文所指的“脑裂”就是集群数据库导致的灾难。</p>
+</li>
+</ul>
+<p>所以总的来说，“双活”几乎没有解决什么容灾上的问题，反而产生了新的问题。如果就容灾而言，“双活”的容灾能力是非常弱的。在绝大部分情况下，双活的容灾能力远不及一般的本地容灾和异地容灾方案。</p>
+<p>当然，我们并不是反对所有的“双活”和“多活”。“双活”和“多活”在负载均衡与跨地域的快速响应上有很高的价值，对于很多应用场景来说，“双活”和“多活”还是非常好的解决方案。但是，双活的优势并不体现在容灾上。恰恰相反，双活的容灾能力远不及一般的本地或异地容灾方案。所以，想要用双活来容灾，就是缘木求鱼了。</p>
+<h3 id="（3）小结"><a href="#（3）小结" class="headerlink" title="（3）小结"></a>（3）小结</h3><p>根据以上的分析，我们明白一个好的容灾方案应该是这样的：</p>
+<ul>
+<li><p>足够重视本地容灾的功能。因为这是真正最常用到的功能。</p>
+</li>
+<li><p>本地容灾可以扩展为异地容灾。异地容灾是本地容灾的有力补充，但不是替代。</p>
+</li>
+<li><p>双活不是容灾，双活环境需要容灾系统来支持。</p>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2022/04/25/%E5%8F%8C%E6%B4%BB%E4%B8%8E%E7%81%BE%E5%A4%87/" data-id="cl2e1h8ll0000vmhq1h5q5dq7" data-title="双活与灾备" class="article-share-link">分享</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2022/04/25/%E5%A6%82%E4%BD%95%E5%9C%A8Ubuntu-20-04%E4%B8%8A%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AERedis/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">前一篇</strong>
+      <div class="article-nav-title">
+        
+          如何在Ubuntu 20.04上安装配置Redis
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2022/04/20/CELL/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">后一篇</strong>
+      <div class="article-nav-title">CELL-实现</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/IT/">IT</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/cell/">cell</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/other/">other</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/10/">十月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/08/">八月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/06/">六月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/05/">五月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">四月 2022</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2022/10/08/%E6%89%AF%E6%B7%A1%E7%A2%91/">扯淡碑</a>
+          </li>
+        
+          <li>
+            <a href="/2022/08/29/%E7%BB%86%E8%83%9E%E4%BA%91%E5%8E%9F%E7%94%9F/">细胞云原生</a>
+          </li>
+        
+          <li>
+            <a href="/2022/06/14/Multipass/">Multipass</a>
+          </li>
+        
+          <li>
+            <a href="/2022/05/12/CELL-%E6%95%B0%E6%8D%AE/">CELL-数据</a>
+          </li>
+        
+          <li>
+            <a href="/2022/05/02/CELL-%E7%9B%91%E6%8E%A7/">CELL-监控</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+        <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502041911" style="display:inline-block;text-decoration:none;height:20px;line-height:20px;">
+            <img src="http://www.beian.gov.cn/img/ghs.png" style="float:left;"/>京公网安备 11010502041911号
+        </a>
+        <a target="_blank" href="http://beian.miit.gov.cn/" style="display:inline-block;text-decoration:none;height:20px;line-height:20px;">
+            　　　　　　京ICP备20018265号
+        </a>
+        <a target="_blank" href="https://www.tanghg.cn/" style="display:inline-block;text-decoration:none;height:20px;line-height:20px;">
+          　　　　　　©2022 viacocha
+        </a>
+  </div>
+</footer>
+ 
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

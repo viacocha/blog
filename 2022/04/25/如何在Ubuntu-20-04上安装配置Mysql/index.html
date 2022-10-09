@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>如何在Ubuntu 20.04上安装配置MySQL | 个人测试</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="MySQL是最流行的开源关系数据库管理系统。它速度快，容易使用，容易扩展，并且流行的LAMP和LEMP的一部分。 这篇指南讲解了如何在 Ubuntu 20.04上安装和配置MySQL。 一、前提条件确保你以 sudo 用户身份登录 二、在 Ubuntu 上安装 MySQL在写作这篇文章的时候，Ubuntu 源仓库中最新的 MySQL 版本号是 MySQL 8.0。想要安装它，运行下面的命令： 12">
+<meta property="og:type" content="article">
+<meta property="og:title" content="如何在Ubuntu 20.04上安装配置MySQL">
+<meta property="og:url" content="http://example.com/2022/04/25/%E5%A6%82%E4%BD%95%E5%9C%A8Ubuntu-20-04%E4%B8%8A%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AEMysql/index.html">
+<meta property="og:site_name" content="个人测试">
+<meta property="og:description" content="MySQL是最流行的开源关系数据库管理系统。它速度快，容易使用，容易扩展，并且流行的LAMP和LEMP的一部分。 这篇指南讲解了如何在 Ubuntu 20.04上安装和配置MySQL。 一、前提条件确保你以 sudo 用户身份登录 二、在 Ubuntu 上安装 MySQL在写作这篇文章的时候，Ubuntu 源仓库中最新的 MySQL 版本号是 MySQL 8.0。想要安装它，运行下面的命令： 12">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-04-25T02:11:00.000Z">
+<meta property="article:modified_time" content="2022-09-13T00:30:56.512Z">
+<meta property="article:author" content="viacocha　　　京ICP备20018265号　　　京公网安备11010502041911号">
+<meta property="article:tag" content="blog,viacocha">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="个人测试" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 6.1.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">个人测试</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">一个学习网站</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS 订阅"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜索"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-如何在Ubuntu-20-04上安装配置Mysql" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/04/25/%E5%A6%82%E4%BD%95%E5%9C%A8Ubuntu-20-04%E4%B8%8A%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AEMysql/" class="article-date">
+  <time class="dt-published" datetime="2022-04-25T02:11:00.000Z" itemprop="datePublished">2022-04-25</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/IT/">IT</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      如何在Ubuntu 20.04上安装配置MySQL
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>MySQL是最流行的开源关系数据库管理系统。它速度快，容易使用，容易扩展，并且流行的LAMP和LEMP的一部分。</p>
+<p>这篇指南讲解了如何在 Ubuntu 20.04上安装和配置MySQL。</p>
+<h3 id="一、前提条件"><a href="#一、前提条件" class="headerlink" title="一、前提条件"></a>一、前提条件</h3><p>确保你以 sudo 用户身份登录</p>
+<h3 id="二、在-Ubuntu-上安装-MySQL"><a href="#二、在-Ubuntu-上安装-MySQL" class="headerlink" title="二、在 Ubuntu 上安装 MySQL"></a>二、在 Ubuntu 上安装 MySQL</h3><p>在写作这篇文章的时候，Ubuntu 源仓库中最新的 MySQL 版本号是 MySQL 8.0。想要安装它，运行下面的命令：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt update</span><br><span class="line">sudo apt install mysql-server</span><br></pre></td></tr></table></figure>
+
+<p>一旦安装完成，MySQL 服务将会自动启动。想要验证 MySQL 服务器正在运行，输入：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl status mysql</span><br></pre></td></tr></table></figure>
+
+<p>输出应该显示服务已经被启用，并且正在运行：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">mysql.service - MySQL Community Server</span><br><span class="line">     Loaded: loaded (/lib/systemd/system/mysql.service; enabled; vendor preset: enabled)</span><br><span class="line">     Active: active (running) since Tue 2020-04-28 20:59:52 UTC; 10min ago</span><br><span class="line">   Main PID: 8617 (mysqld)</span><br><span class="line">     Status: &quot;Server is operational&quot;</span><br><span class="line">     ...</span><br></pre></td></tr></table></figure>
+
+<h3 id="三、保护加固-MySQL"><a href="#三、保护加固-MySQL" class="headerlink" title="三、保护加固 MySQL"></a>三、保护加固 MySQL</h3><p>MySQL安装文件附带了一个名为mysql_secure_installation的脚本，它允许你很容易地提高数据库服务器的安全性。</p>
+<p>不带参数运行这个脚本：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo mysql_secure_installation</span><br></pre></td></tr></table></figure>
+
+<p>你将会被要求配置 VALIDATE PASSWORD PLUGIN，它被用来测试 MySQL 用户密码的强度，并且提高安全性：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Securing the MySQL server deployment.</span><br><span class="line"></span><br><span class="line">Connecting to MySQL using a blank password.</span><br><span class="line"></span><br><span class="line">VALIDATE PASSWORD COMPONENT can be used to test passwords</span><br><span class="line">and improve security. It checks the strength of password</span><br><span class="line">and allows the users to set only those passwords which are</span><br><span class="line">secure enough. Would you like to setup VALIDATE PASSWORD component?</span><br><span class="line"></span><br><span class="line">Press y|Y for Yes, any other key for No: y</span><br></pre></td></tr></table></figure>
+
+<p>有三个级别的密码验证策略，低级，中级，高级。如果你想设置验证密码插件，按y或者其他任何按键，移动到下一个步骤：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">There are three levels of password validation policy:</span><br><span class="line"></span><br><span class="line">LOW    Length &gt;= 8</span><br><span class="line">MEDIUM Length &gt;= 8, numeric, mixed case, and special characters</span><br><span class="line">STRONG Length &gt;= 8, numeric, mixed case, special characters and dictionary                  file</span><br><span class="line"></span><br><span class="line">Please enter 0 = LOW, 1 = MEDIUM and 2 = STRONG: 2</span><br></pre></td></tr></table></figure>
+
+<p>下一次被提示时，你将被要求为 MySQL root 用户设置一个密码：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Please set the password for root here.</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">New password: </span><br><span class="line"></span><br><span class="line">Re-enter new password: </span><br></pre></td></tr></table></figure>
+
+<p>如果你设置了验证密码插件，这个脚本将会显示你的新密码强度。输入y确认密码：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Estimated strength of the password: 50 </span><br><span class="line">Do you wish to continue with the password provided?(Press y|Y for Yes, any other key for No) : y</span><br></pre></td></tr></table></figure>
+
+<p>下一步，你将被要求移除任何匿名用户，限制 root 用户访问本地机器，移除测试数据库并且重新加载权限表。你应该对所有的问题回答y。</p>
+<h3 id="四、以-root-用户身份登录"><a href="#四、以-root-用户身份登录" class="headerlink" title="四、以 root 用户身份登录"></a>四、以 root 用户身份登录</h3><p>使用 MySQl 客户端工具在命令行和 MySQL 服务器交互，这个 MySQL 客户端已经作为 MySQL 服务器安装包的依赖软件包被安装了。</p>
+<p>在MySQL 8.0上，root 用户默认通过auth_socket插件授权。</p>
+<p>auth_socket插件通过 Unix socket 文件来验证所有连接到localhost的用户。这意味着你不能通过提供密码，验证为 root。</p>
+<p>以 root 用户身份登录 MySQL服务器，输入；</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo mysql</span><br></pre></td></tr></table></figure>
+
+<p>你将会被展示MySQL shell，就像下面一样：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">Welcome to the MySQL monitor.  Commands end with ; or \g.</span><br><span class="line">Your MySQL connection id is 12</span><br><span class="line">Server version: 8.0.19-0ubuntu5 (Ubuntu)</span><br><span class="line"></span><br><span class="line">Copyright (c) 2000, 2020, Oracle and/or its affiliates. All rights reserved.</span><br><span class="line"></span><br><span class="line">Oracle is a registered trademark of Oracle Corporation and/or its</span><br><span class="line">affiliates. Other names may be trademarks of their respective</span><br><span class="line">owners.</span><br><span class="line"></span><br><span class="line">Type &#x27;help;&#x27; or &#x27;\h&#x27; for help. Type &#x27;\c&#x27; to clear the current input statement.</span><br><span class="line"></span><br><span class="line">mysql&gt;</span><br></pre></td></tr></table></figure>
+
+<p>如果你想以 root 身份登录 MySQL 服务器，使用其他的程序，例如 phpMyAdmin，你有两个选择。</p>
+<p>第一个就是将验证方法从auth_socket修改成mysql_native_password。你可以通过运行下面的命令实现：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ALTER USER &#x27;root&#x27;@&#x27;localhost&#x27; IDENTIFIED WITH mysql_native_password BY &#x27;very_strong_password&#x27;;</span><br><span class="line">FLUSH PRIVILEGES;</span><br></pre></td></tr></table></figure>
+
+<p>第二个选项，推荐的选项，就是创建一个新的独立管理用户，拥有所有数据库的访问权限：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">GRANT ALL PRIVILEGES ON *.* TO &#x27;administrator&#x27;@&#x27;localhost&#x27; IDENTIFIED BY &#x27;very_strong_password&#x27;;</span><br></pre></td></tr></table></figure>
+
+<h3 id="五、外网访问"><a href="#五、外网访问" class="headerlink" title="五、外网访问"></a>五、外网访问</h3><p>完成以上情况还是无法连接出现”ERROR 2003 (HY000): Can’t connect to MySQL server on ‘localhost’ (10061)”</p>
+<p>可以去&#x2F;etc&#x2F;mysql&#x2F;my.cnf中查看一下</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">bind-address = 127.0.0.1</span><br><span class="line"></span><br><span class="line">有的版本的不一定在上述目录下，我的就在/etc/mysql/mysql.conf.d/mysqld.cnf文件里</span><br></pre></td></tr></table></figure>
+
+<p>如果是这样，mysql只能接受localhost的访问，将其改成 <code>0.0.0.0</code> 就可以了，然后</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl restart mysql</span><br></pre></td></tr></table></figure>
+
+<p>将服务器重启应该就可以了。</p>
+<h3 id="六、总结"><a href="#六、总结" class="headerlink" title="六、总结"></a>六、总结</h3><p>我们已经向你展示如何在 Ubuntu 20.04 上安装 MySQL。现在你的数据库已经上线，并且运行，你的下一步就是学习<a target="_blank" rel="noopener" href="https://linuxize.com/post/how-to-manage-mysql-databases-and-users-from-the-command-line/?spm=a2c6h.12873639.article-detail.6.1f7a66c9NtylAE">如何管理 MySQL 用户和数据库</a>。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2022/04/25/%E5%A6%82%E4%BD%95%E5%9C%A8Ubuntu-20-04%E4%B8%8A%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AEMysql/" data-id="cl2e4hcla0000hehq1ix29fr1" data-title="如何在Ubuntu 20.04上安装配置MySQL" class="article-share-link">分享</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2022/04/28/CELL-%E5%9F%BA%E5%9B%A0/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">前一篇</strong>
+      <div class="article-nav-title">
+        
+          CELL-基因
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2022/04/25/%E5%A6%82%E4%BD%95%E5%9C%A8Ubuntu-20-04%E4%B8%8A%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AERedis/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">后一篇</strong>
+      <div class="article-nav-title">如何在Ubuntu 20.04上安装配置Redis</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/IT/">IT</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/cell/">cell</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/other/">other</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/10/">十月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/08/">八月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/06/">六月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/05/">五月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">四月 2022</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2022/10/08/%E6%89%AF%E6%B7%A1%E7%A2%91/">扯淡碑</a>
+          </li>
+        
+          <li>
+            <a href="/2022/08/29/%E7%BB%86%E8%83%9E%E4%BA%91%E5%8E%9F%E7%94%9F/">细胞云原生</a>
+          </li>
+        
+          <li>
+            <a href="/2022/06/14/Multipass/">Multipass</a>
+          </li>
+        
+          <li>
+            <a href="/2022/05/12/CELL-%E6%95%B0%E6%8D%AE/">CELL-数据</a>
+          </li>
+        
+          <li>
+            <a href="/2022/05/02/CELL-%E7%9B%91%E6%8E%A7/">CELL-监控</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+        <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502041911" style="display:inline-block;text-decoration:none;height:20px;line-height:20px;">
+            <img src="http://www.beian.gov.cn/img/ghs.png" style="float:left;"/>京公网安备 11010502041911号
+        </a>
+        <a target="_blank" href="http://beian.miit.gov.cn/" style="display:inline-block;text-decoration:none;height:20px;line-height:20px;">
+            　　　　　　京ICP备20018265号
+        </a>
+        <a target="_blank" href="https://www.tanghg.cn/" style="display:inline-block;text-decoration:none;height:20px;line-height:20px;">
+          　　　　　　©2022 viacocha
+        </a>
+  </div>
+</footer>
+ 
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

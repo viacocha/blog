@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>个人测试</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="利用腾讯CloudBase构建的一个学习博客">
+<meta property="og:type" content="website">
+<meta property="og:title" content="个人测试">
+<meta property="og:url" content="http://example.com/page/2/index.html">
+<meta property="og:site_name" content="个人测试">
+<meta property="og:description" content="利用腾讯CloudBase构建的一个学习博客">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="viacocha　　　京ICP备20018265号　　　京公网安备11010502041911号">
+<meta property="article:tag" content="blog,viacocha">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="个人测试" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 6.1.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">个人测试</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">一个学习网站</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS 订阅"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜索"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-如何在Ubuntu-20-04上安装配置Redis" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/04/25/%E5%A6%82%E4%BD%95%E5%9C%A8Ubuntu-20-04%E4%B8%8A%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AERedis/" class="article-date">
+  <time class="dt-published" datetime="2022-04-25T01:49:00.000Z" itemprop="datePublished">2022-04-25</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/IT/">IT</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/04/25/%E5%A6%82%E4%BD%95%E5%9C%A8Ubuntu-20-04%E4%B8%8A%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AERedis/">如何在Ubuntu 20.04上安装配置Redis</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>Redis 是一个开源的在内存存储键值对数据的存储程序。它可以被用作数据库，缓存，信息暂存，并且支持各种数据结构，例如：字符串，哈希值，列表，集合等等。 Redis 通过 Redis Sentinel 和 Redis 集群中多个 Redis 节点的自动分块处理，提供了高可用性。</p>
+<p>这篇指南描述了如何在 Ubuntu 20.04 上安装和配置 Redis。</p>
+<h3 id="一、在-Ubuntu-20-04-上安装-Redis"><a href="#一、在-Ubuntu-20-04-上安装-Redis" class="headerlink" title="一、在 Ubuntu 20.04 上安装 Redis"></a>一、在 Ubuntu 20.04 上安装 Redis</h3><p>在 Ubuntu 上安装 Redis 非常简单直接。</p>
+<p>Redis 5.0 被包含在默认的 Ubuntu 20.04 软件源中。想要安装它，以 root 或者其他 sudo 身份运行下面的命令：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt update</span><br><span class="line">sudo apt install redis-server</span><br></pre></td></tr></table></figure>
+
+<p>一旦安装完成，Redis 服务将会自动启动。想要检查服务的状态，输入下面的命令：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl status redis-server</span><br></pre></td></tr></table></figure>
+
+<p>你应该看到下面这些：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">redis-server.service - Advanced key-value store</span><br><span class="line">     Loaded: loaded (/lib/systemd/system/redis-server.service; enabled; vendor preset: enabled)</span><br><span class="line">     Active: active (running) since Sat 2020-06-06 20:03:08 UTC; 10s ago</span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">如果你的服务器上禁用 IPv6，那么 Redis 服务将会启动失败。</span><br></pre></td></tr></table></figure>
+
+<p>就这些。你已经在你的 Ubuntu 20.04 上安装并运行了 Redis。</p>
+<h3 id="二、配置-Redis-远程访问"><a href="#二、配置-Redis-远程访问" class="headerlink" title="二、配置 Redis 远程访问"></a>二、配置 Redis 远程访问</h3><p>默认情况下，Redis 不允许远程连接。你仅仅只能从127.0.0.1（localhost）连接 Redis 服务器 - Redis 服务器正在运行的机器上。</p>
+<p>如果你正在使用单机，数据库也同样在这台机器上，你不需要启用远程访问。</p>
+<p>想要配置 Redis 来接受远程访问，使用你的文本编辑器打开 Redis 配置文件：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo nano /etc/redis.conf</span><br></pre></td></tr></table></figure>
+<p>定位到以bind 127.0.0.1 ::1开头的一行，并且取消它的注释：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># bind 0.0.0.0 ::1</span><br><span class="line"></span><br><span class="line">如果你的服务器有局域网 IP，并且你想要 Redis 从局域网可以访问 Redis，在这一行后面加上服务器局域网 IP 地址。</span><br></pre></td></tr></table></figure>
+
+<p>保存这个文件，并且重启 Redis 服务，使应用生效：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl restart redis-server</span><br></pre></td></tr></table></figure>
+
+<p>使用下面的命令来验证 Redis 服务器正在监听端口6379：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ss -an | grep 6379</span><br></pre></td></tr></table></figure>
+<p>你应该能看到类似下面的信息：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tcp  LISTEN 0   511   0.0.0.0:6379   0.0.0.0:*</span><br><span class="line">tcp  LISTEN 0   511      [::]:6379      [::]:*  </span><br></pre></td></tr></table></figure>
+
+<p>下一步，你将需要配置你的防火墙，允许网络流量通过 TCP 端口6379。</p>
+<p>通常你想要允许从一个指定 IP 地址或者一个指定 IP 范围来访问 Redis 服务器。例如，想要允许从192.168.121.0&#x2F;24的连接，运行下面的命令：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ufw allow proto tcp from 192.168.121.0/24 to any port 6379</span><br></pre></td></tr></table></figure>
+
+<p>确保你的防火墙被配置仅仅接受来自受信任 IP 的连接。<br>此时，你应该可以从远程位置通过 TCP 连接到 Redis 的 6379 端口。</p>
+<p>想要验证所有设置都设置好了，你可以尝试使用redis-cli从你的远程机器上 ping 一下 Redis 服务器。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">redis-cli -h &lt;REDIS_IP_ADDRESS&gt; ping</span><br></pre></td></tr></table></figure>
+
+<p>这个命令将会返回一个响应：PONG</p>
+<p>PONG</p>
+<h3 id="三、总结"><a href="#三、总结" class="headerlink" title="三、总结"></a>三、总结</h3><p>我们已经向你展示如何在 Ubuntu 20.04 上安装 Redis。想要了解更多关于如何使用 Redis 的信息，请访问它们的<a target="_blank" rel="noopener" href="https://redis.io/docs">官方文档页面</a>。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2022/04/25/%E5%A6%82%E4%BD%95%E5%9C%A8Ubuntu-20-04%E4%B8%8A%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AERedis/" data-id="cl2e29yti0000c1hq5id75luu" data-title="如何在Ubuntu 20.04上安装配置Redis" class="article-share-link">分享</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-双活与灾备" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/04/25/%E5%8F%8C%E6%B4%BB%E4%B8%8E%E7%81%BE%E5%A4%87/" class="article-date">
+  <time class="dt-published" datetime="2022-04-25T01:27:00.000Z" itemprop="datePublished">2022-04-25</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/IT/">IT</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/04/25/%E5%8F%8C%E6%B4%BB%E4%B8%8E%E7%81%BE%E5%A4%87/">双活与灾备</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h3 id="（1）“异地”与“本地”，哪个好？"><a href="#（1）“异地”与“本地”，哪个好？" class="headerlink" title="（1）“异地”与“本地”，哪个好？"></a>（1）“异地”与“本地”，哪个好？</h3><p>这是一个很常见的误解。异地容灾的造价往往是本地容灾的几倍甚至几十倍，为了保证链路还需要持续不断地进行投入。由于很多厂商可以通过异地容灾扩大销售业绩，他们也在背后不断强调异地容灾的价值，默许甚至推动这个误解不断蔓延。</p>
+<p>实际上，我们认为，异地容灾不能替代本地容灾，只是本地容灾基础上的补充。两者共同组成一个完整的容灾解决方案。而在实际使用中，本地容灾往往比异地容灾更加重要。为什么呢？</p>
+<p>灾难可以简单分成物理灾难和逻辑灾难两类。火灾、停电、恐怖袭击等情况，使生产中心大规模损毁，叫作物理灾难。而逻辑灾难是指数据库崩溃、人为误操作、系统升级失败、黑客入侵、恶意删除等。物理灾难和逻辑灾难的差别主要是物理的硬件设施是否损毁。说到这里，可能大家都会意识到，在现实生活中，逻辑灾难发生的概率是远超物理灾难的。<br>于是，灾难发生时主要有这几种可能的情况：</p>
+<ul>
+<li><p>发生逻辑灾难，生产中心的硬件设施实际上仍然完好，我们只要恢复数据和系统就可以重新上线。所以本地容灾可以很好地应对逻辑灾难。</p>
+</li>
+<li><p>发生物理灾难，有可能损毁的硬件设施存在备机或者可以在本地能够马上修复。比如一台服务器烧毁，但是本地有一台备机，或者可以马上分配一台虚拟机出来，这种情况下仍然是本地容灾可以解决的范围。</p>
+</li>
+<li><p>发生物理灾难，而且硬件设施不能马上修复，才需要异地容灾。</p>
+</li>
+</ul>
+<p>那么可能有的朋友会说，既然已经花巨资建好了灾备中心，那无论什么灾难都切换到灾备中心就好了。这样可不可以呢？我们姑且先不考虑成本，我们来考虑一下下面这些问题：</p>
+<ul>
+<li><p>灾备中心是否对所有的系统，包括关键业务系统、所有的外围应用系统以及相关的存储和网络，都实现了容灾？如果没有，异地容灾就不如本地容灾。</p>
+</li>
+<li><p>灾备中心是否保证了所有数据的完整性和一致性？远程网络传输往往对数据的完整性和一致性产生挑战，而完整性和一致性是接管业务的必需条件，所以如果不能保证，异地容灾就不如本地容灾。</p>
+</li>
+<li><p>灾备中心的硬件配置和通信链路能不能做到与生产中心相等？国内绝大部分灾备中心的配置都比生产中心低一些，这必然会对业务产生影响，则异地不如本地容灾。</p>
+</li>
+<li><p>灾备中心的人员配置管理水平如何？国内灾备中心的人员配置往往不够完整，更不要提素质和经验上的差距了，这样的话，异地容灾就不如本地容灾。</p>
+</li>
+<li><p>容灾之后回切所产生的风险你考虑到了吗？这个往往最重要，一次系统回切所产生的风险丝毫不亚于一次灾难。</p>
+</li>
+<li><p>在实际应用中，异地容灾的决策流程能不能和本地恢复一样快速而有效率？这几乎是不可能的。故障切换会对很多业务产生重大影响，任何企业都需要一套复杂的审批流程来慎重对待。但是，在真的故障发生的时候，铺天盖地的指责和谩骂迎面扑来，如何果断快速地应对，可能对任何领导都是一种挑战。</p>
+</li>
+</ul>
+<p>考虑到这些因素，可能在绝大部分情况下，如果可以选择，用本地容灾比异地容灾更可靠，也更方便。</p>
+<p>这并不是说就不需要异地容灾了。如上所述，如果出现无法快速修复的物理灾难，异地容灾还是很有用的。我们的结论是，异地容灾应该是已经做好本地容灾基础上的补充，而不能替代本地容灾。</p>
+<h3 id="（2）“双活”和“异地容灾”哪个好？"><a href="#（2）“双活”和“异地容灾”哪个好？" class="headerlink" title="（2）“双活”和“异地容灾”哪个好？"></a>（2）“双活”和“异地容灾”哪个好？</h3><p>“双活”，甚至“多活”数据中心，是现在数据中心建设领域非常热门的话题。双活需要更复杂的跨地域的系统和应用设计，因此其复杂程度和造价往往远远高于普通的“异地容灾”。贵的往往是更好的，所以很多人开始产生一个误区，认为“双活”才是容灾的终极理想，是比“异地容灾”更加高大上的存在。有了双活，就用不着容灾了。这是不是事实呢？</p>
+<p>不是！我们认为，“双活”是个好东西，“多活”更好，但是，它的好并不体现在容灾上。双活适应的场景与容灾不一样。</p>
+<p>为什么呢？因为要实现双活，核心要素是两个数据中心的应用数据保持完全同步。其底层技术一般都是基于数据库、服务器或者存储的集群技术。为了实现完全同步，系统设计的难度、网络链路的造价和维护成本远远高于一般的异地容灾。另外，我们特别需要注意到，双活还产生了容灾上无法解决的致命弱点：</p>
+<ul>
+<li><p>我们之前讨论的逻辑灾难，比如数据库错误、恶意删除、黑客入侵等情况，完全同步的结果就是同生同死，无论是双活还是多活，所有的节点只能是一起瘫痪。</p>
+</li>
+<li><p>双活并不保留数据的历史样本。也就是说，永远只有一份最新的数据。容灾往往需要把系统回退到以前，比如一个小时之前的状态，双活并不具备这样的功能。</p>
+</li>
+<li><p>完全同步本身有导致系统灾难的可能。例如银监会175文所指的“脑裂”就是集群数据库导致的灾难。</p>
+</li>
+</ul>
+<p>所以总的来说，“双活”几乎没有解决什么容灾上的问题，反而产生了新的问题。如果就容灾而言，“双活”的容灾能力是非常弱的。在绝大部分情况下，双活的容灾能力远不及一般的本地容灾和异地容灾方案。</p>
+<p>当然，我们并不是反对所有的“双活”和“多活”。“双活”和“多活”在负载均衡与跨地域的快速响应上有很高的价值，对于很多应用场景来说，“双活”和“多活”还是非常好的解决方案。但是，双活的优势并不体现在容灾上。恰恰相反，双活的容灾能力远不及一般的本地或异地容灾方案。所以，想要用双活来容灾，就是缘木求鱼了。</p>
+<h3 id="（3）小结"><a href="#（3）小结" class="headerlink" title="（3）小结"></a>（3）小结</h3><p>根据以上的分析，我们明白一个好的容灾方案应该是这样的：</p>
+<ul>
+<li><p>足够重视本地容灾的功能。因为这是真正最常用到的功能。</p>
+</li>
+<li><p>本地容灾可以扩展为异地容灾。异地容灾是本地容灾的有力补充，但不是替代。</p>
+</li>
+<li><p>双活不是容灾，双活环境需要容灾系统来支持。</p>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2022/04/25/%E5%8F%8C%E6%B4%BB%E4%B8%8E%E7%81%BE%E5%A4%87/" data-id="cl2e1h8ll0000vmhq1h5q5dq7" data-title="双活与灾备" class="article-share-link">分享</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-CELL" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/04/20/CELL/" class="article-date">
+  <time class="dt-published" datetime="2022-04-20T05:25:00.000Z" itemprop="datePublished">2022-04-20</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/cell/">cell</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/04/20/CELL/">CELL-实现</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>一个完整的细胞应当是Serverless的，只关注业务，并不关注是哪一个用户。</p>
+<p>细胞由输入触角、输出触角、管理触角、监控触角，及细胞本体构成。</p>
+<p><img src="/images/cell-realization.png" alt="细胞实现" title="Cell Realization"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2022/04/20/CELL/" data-id="cl274s11f0005ethqhtny2plo" data-title="CELL-实现" class="article-share-link">分享</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-CELL-实现" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/04/20/CELL-%E5%AE%9E%E7%8E%B0/" class="article-date">
+  <time class="dt-published" datetime="2022-04-20T05:24:00.000Z" itemprop="datePublished">2022-04-20</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/cell/">cell</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/04/20/CELL-%E5%AE%9E%E7%8E%B0/">CELL-概述</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>这里所称的细胞理论是一种软件开发思想。</p>
+<p>然对实时交易系统（Realtime Trading System，RTS），它有如下特点或要求：</p>
+<p>1、高效，环节尽可能的少<br>2、稳定，仍然是环节改可能的少<br>3、一致，由于交易是一个事务，要保证原子性<br>4、弹性，可横向快速扩展这样才能保证稳定</p>
+<p>在微服务、中台，大为流行的时代，RTS应该发生什么变革。</p>
+<p>我认为如果直接采用微服务的思想，将一个完整的RTS裁成一个个的微服务，那么增加了环节，效率和稳定性都会降低。一般来说，RTS不会象管理、服务、分析等类的软件那样变化多端，需求相对稳定，所以，针对RTS我提出了细胞理论，由于将RTS上云。</p>
+<p>对于一个RTS不要以服务的视角来看，而是从RT服务的对象视角来看，为了便于理论，引入极端情况，假定一个RTS是一堆细胞的组合，一个细胞仅服务一个被服务对象（如：一个手机APP应用），该细胞完整个实现RTS的所有非管理类功能。如果再多一个被服务对象（如，第二个手机APP应用访问）则启动第二个相同的细胞进行服务。这样，所以的环节、流程都被封装到一个细胞内，效率和稳定性都会最高，且程序开发难度可以因不涉及进程间通信等高阶应用而大大降低。</p>
+<p>本项目会从实现、基因、代谢、控制管理、进化、监控、数据、安全等多个角度来论述细胞理论。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2022/04/20/CELL-%E5%AE%9E%E7%8E%B0/" data-id="cl274qm1p0004ethq1wvlcfst" data-title="CELL-概述" class="article-share-link">分享</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-second" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/04/19/second/" class="article-date">
+  <time class="dt-published" datetime="2022-04-19T12:56:00.000Z" itemprop="datePublished">2022-04-19</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/04/19/second/">第一篇博客</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>hello world</p>
+<p>这是使用腾讯的<a target="_blank" rel="noopener" href="https://cloud.tencent.com/">CloudBase</a>构建的Hexo网站</p>
+<p><em>I am viacocha</em></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2022/04/19/second/" data-id="cl26ypg6o0001ubhq1a3u5ui6" data-title="第一篇博客" class="article-share-link">分享</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="/">&laquo; 上一页</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+  </nav>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/IT/">IT</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/cell/">cell</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/other/">other</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/10/">十月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/08/">八月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/06/">六月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/05/">五月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">四月 2022</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2022/10/08/%E6%89%AF%E6%B7%A1%E7%A2%91/">扯淡碑</a>
+          </li>
+        
+          <li>
+            <a href="/2022/08/29/%E7%BB%86%E8%83%9E%E4%BA%91%E5%8E%9F%E7%94%9F/">细胞云原生</a>
+          </li>
+        
+          <li>
+            <a href="/2022/06/14/Multipass/">Multipass</a>
+          </li>
+        
+          <li>
+            <a href="/2022/05/12/CELL-%E6%95%B0%E6%8D%AE/">CELL-数据</a>
+          </li>
+        
+          <li>
+            <a href="/2022/05/02/CELL-%E7%9B%91%E6%8E%A7/">CELL-监控</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+        <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502041911" style="display:inline-block;text-decoration:none;height:20px;line-height:20px;">
+            <img src="http://www.beian.gov.cn/img/ghs.png" style="float:left;"/>京公网安备 11010502041911号
+        </a>
+        <a target="_blank" href="http://beian.miit.gov.cn/" style="display:inline-block;text-decoration:none;height:20px;line-height:20px;">
+            　　　　　　京ICP备20018265号
+        </a>
+        <a target="_blank" href="https://www.tanghg.cn/" style="display:inline-block;text-decoration:none;height:20px;line-height:20px;">
+          　　　　　　©2022 viacocha
+        </a>
+  </div>
+</footer>
+ 
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
